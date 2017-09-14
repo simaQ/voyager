@@ -2,7 +2,7 @@
 import {ACTION_TYPES} from '../actions/index';
 import {RESET} from '../actions/reset';
 import {Bookmark, DEFAULT_BOOKMARK} from '../models/bookmark';
-import {DEFAULT_CUSTOM_WILDCARD_FIELDS} from '../models/custom-wildcard-field';
+import {DEFAULT_CUSTOM_WILDCARD_FIELDDEFS} from '../models/custom-wildcard-field';
 import {DEFAULT_DATASET} from '../models/dataset';
 import {
   DEFAULT_PERSISTENT_STATE,
@@ -14,7 +14,7 @@ import {
 import {DEFAULT_RESULT, DEFAULT_RESULT_INDEX} from '../models/result';
 import {DEFAULT_SHELF, DEFAULT_SHELF_UNIT_SPEC} from '../models/shelf/index';
 import {selectDataset} from '../selectors/dataset';
-import {selectBookmark, selectCustomWildcardFields} from '../selectors/index';
+import {selectBookmark, selectCustomWildcardFieldDefs} from '../selectors/index';
 import {selectResult} from '../selectors/result';
 import {selectShelf, selectShelfAutoAddCount} from '../selectors/shelf';
 import {ACTIONS_EXCLUDED_FROM_HISTORY, GROUPED_ACTIONS, rootReducer, USER_ACTIONS} from './index';
@@ -74,7 +74,7 @@ describe('reducers/index', () => {
       const state = rootReducer(oldState, {type: RESET});
 
       expect(selectBookmark(state)).toEqual(DEFAULT_BOOKMARK);
-      expect(selectCustomWildcardFields(state)).toEqual(DEFAULT_CUSTOM_WILDCARD_FIELDS);
+      expect(selectCustomWildcardFieldDefs(state)).toEqual(DEFAULT_CUSTOM_WILDCARD_FIELDDEFS);
       expect(selectDataset(state)).toEqual(DEFAULT_DATASET);
       expect(selectShelf(state)).toEqual(DEFAULT_SHELF);
       expect(selectShelfAutoAddCount(state)).toEqual(true);

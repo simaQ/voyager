@@ -2,7 +2,7 @@ import {FieldSchema, Schema, TableSchema} from 'compassql/build/src/schema';
 import {StateWithHistory} from 'redux-undo';
 import {Bookmark, DEFAULT_BOOKMARK} from './bookmark';
 import {DEFAULT_VOYAGER_CONFIG, VoyagerConfig} from './config';
-import {CustomWildcardField, DEFAULT_CUSTOM_WILDCARD_FIELDS} from './custom-wildcard-field';
+import {CustomWildcardFieldDef, DEFAULT_CUSTOM_WILDCARD_FIELDDEFS} from './custom-wildcard-field';
 import {Dataset, DatasetWithoutSchema, DEFAULT_DATASET} from './dataset';
 import {DEFAULT_LOG, Log} from './log';
 import {DEFAULT_RESULT_INDEX, ResultIndex} from './result';
@@ -26,7 +26,7 @@ export interface PersistentState {
 }
 
 export interface UndoableStateBaseWithoutDataset {
-  customWildcardFields: CustomWildcardField[];
+  customWildcardFieldDefs: CustomWildcardFieldDef[];
   shelf: Shelf;
   result: ResultIndex;
 }
@@ -44,7 +44,7 @@ export interface State {
 };
 
 export const DEFAULT_UNDOABLE_STATE_BASE: UndoableStateBase = {
-  customWildcardFields: DEFAULT_CUSTOM_WILDCARD_FIELDS,
+  customWildcardFieldDefs: DEFAULT_CUSTOM_WILDCARD_FIELDDEFS,
   dataset: DEFAULT_DATASET,
   shelf: DEFAULT_SHELF,
   result: DEFAULT_RESULT_INDEX
