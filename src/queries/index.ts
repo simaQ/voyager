@@ -47,11 +47,12 @@ export const RELATED_VIEWS_TYPES = Object.keys(RELATED_VIEWS_INDEX)
 export function dispatchQueries(store: Store<State>, query: Query) {
   const state = store.getState();
 
+
   const isQueryEmpty = selectIsQueryEmpty(state);
   const isQuerySpecific = selectIsQuerySpecific(state);
   store.dispatch(resultRequest('main', query, null));
 
-  if (state.persistent.config.manualSpecificationOnly) {
+  if (state.persistent.config.manualSpecificationOnly || state.persistent.relatedViews.isHidden) {
     return;
   }
 

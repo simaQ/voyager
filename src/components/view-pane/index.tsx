@@ -24,6 +24,7 @@ import {
 import {Plot} from '../plot';
 import {PlotList} from '../plot-list';
 import {RelatedViews} from './related-views';
+import {RelatedViewsButton} from './related-views-button';
 import * as styles from './view-pane.scss';
 
 export interface ViewPaneProps extends ActionHandler<ShelfAction> {
@@ -65,9 +66,10 @@ class ViewPaneBase extends React.PureComponent<ViewPaneProps, {}> {
   public render() {
     const {isQuerySpecific} = this.props;
     const {manualSpecificationOnly} = this.props.config;
-
     const relatedViews = !manualSpecificationOnly && (
       <div className="pane" styleName="view-pane-related-views">
+        <RelatedViewsButton>
+        </RelatedViewsButton>
         <h2>Related Views</h2>
         <RelatedViews/>
       </div>
